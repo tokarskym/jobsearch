@@ -1,13 +1,13 @@
 import styled from 'styled-components'; 
 
-const JobCard = styled.div<{isNew: boolean}>`
+const JobCard = styled.div<{ $isNew: boolean}>`
 border-radius: 5px; 
 margin: 30px 23px;  
 background-color: #FFFFFF;
 position: relative; 
 padding: 20px; 
 box-shadow: 5px 5px 15px rgba(92, 165, 165, 0.5); 
-border-left: ${props => props.isNew ? '7px solid #5CA5A5' : 'none'};
+border-left: ${props => props.$isNew ? '7px solid #5CA5A5' : 'none'};
 `
 const CompanyLogo = styled.img`
 width: 48px; 
@@ -72,7 +72,7 @@ flex-direction: row;
 flex-wrap: wrap; 
 `
 
-const SingleTag = styled.button`
+export const SingleTag = styled.button`
 background-color: #EFFAFA; 
 border-radius: 5px; 
 margin-right: 16px; 
@@ -89,7 +89,7 @@ interface HighlightTagProps {
   type: 'new' | 'featured';
 }
 
-interface Offer {
+export interface Offer {
   id: number; 
   company: string; 
   logo: string; 
@@ -107,12 +107,14 @@ interface Offer {
 
 
 interface JobOfferProps {
-  offer: Offer;
+    offer: Offer;
+    toggleTag: (tag: string) => void;  
 }
 
 
-const JobOffer: React.FC<JobOfferProps> = ({ offer }) => {
-    
+const JobOffer: React.FC<JobOfferProps> = ({ offer, toggleTag}) => {
+
+
    const tags: string[] = [
     offer.role,
     offer.level,
@@ -121,7 +123,7 @@ const JobOffer: React.FC<JobOfferProps> = ({ offer }) => {
 ];
     
     return (
-        <JobCard isNew={offer.new} >
+        <JobCard $isNew={offer.new} >
             <div>
                 <CompanyLogo src={offer.logo} alt="Company logo" />
             </div>
@@ -145,7 +147,7 @@ const JobOffer: React.FC<JobOfferProps> = ({ offer }) => {
             <StyledHr />
             <JobTags>
               {tags.map((tag, index) => (
-                <SingleTag key={index}>{tag}</SingleTag>
+                <SingleTag key={index} onClick={()=>toggleTag(tag)}>{tag}</SingleTag>
             ))}
             </JobTags>
         </JobCard>
