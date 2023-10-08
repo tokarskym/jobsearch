@@ -3,21 +3,9 @@ import { offers } from "../../Data/OffersData";
 import { useState, useEffect } from "react";
 import { Offer } from "./JobOffer"; 
 import styled from "styled-components";
-import { SingleTag } from "./JobOffer";
-
-
-
-const FilteredTagsDiv = styled.div`
-border-radius: 5px; 
-margin: 30px 23px;  
-background-color: #FFFFFF;
-padding: 20px; 
-box-shadow: 5px 5px 15px rgba(92, 165, 165, 0.5); 
-`
 
 const JobListContainer = styled.div`
 position: relative; 
-
 `
 
 interface JobOfferListProps {
@@ -44,7 +32,7 @@ const JobOfferList: React.FC<JobOfferListProps>= ({toggleTag, selectedTags}) => 
     
         useEffect(() => {
         setFilteredOffers(filterOffers(offers, selectedTags));
-    }, [selectedTags, offers]);
+    }, [selectedTags]);
 
 
     return (
