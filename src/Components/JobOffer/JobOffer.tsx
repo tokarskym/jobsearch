@@ -8,6 +8,11 @@ position: relative;
 padding: 20px; 
 box-shadow: 5px 5px 15px rgba(92, 165, 165, 0.5); 
 border-left: ${props => props.$isNew ? '7px solid #5CA5A5' : 'none'};
+@media (min-width: 768px) {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+}
 `
 const CompanyLogo = styled.img`
 width: 48px; 
@@ -15,10 +20,16 @@ border-radius: 50%;
 position: absolute; 
 top: -22px; 
 left: 20px;
+@media (min-width: 768px) {
+    position: static; 
+    width: 100px;  
+    margin-right: 30px; 
+}
 `
 const JobDetails = styled.div`
 display: flex; 
 flex-direction: column; 
+width: 100%; 
 `
 const JobDetailsRow = styled.div`
 display: flex; 
@@ -47,8 +58,7 @@ color: #2B3939;
 const JobSpecs = styled.p`
 font-size: 16px; 
 font-weight: medium; 
-color: #7C8F8F; 
-letter-spacing: -0.12px; 
+color: #7C8F8F;
 `
 const StyledDot = styled.span`
   display: inline-block;
@@ -64,12 +74,18 @@ width: 100%;
 background-color: #B7C4C4; 
 border: none; 
 margin-bottom: 20px; 
+@media (min-width: 768px) {
+    display: none;
+  }
 `
 const JobTags = styled.div`
 width: 100%; 
 display: flex;
 flex-direction: row; 
 flex-wrap: wrap; 
+@media (min-width: 768px) {
+    justify-content: flex-end; 
+}
 `
 
 export const SingleTag = styled.button`
@@ -82,6 +98,13 @@ font-weight: bold;
 border: none; 
 padding: 7px; 
 margin-bottom: 10px; 
+@media (min-width: 1024px) {
+    cursor: pointer; 
+    &:hover {
+        background-color: #5CA5A5; 
+        color: white; 
+    }
+}
 `
 
 
@@ -105,12 +128,10 @@ export interface Offer {
   tools: string[];
 }
 
-
 interface JobOfferProps {
     offer: Offer;
     toggleTag: (tag: string) => void;  
 }
-
 
 const JobOffer: React.FC<JobOfferProps> = ({ offer, toggleTag}) => {
 

@@ -9,6 +9,9 @@ height: 156px;
 background-image: url('/images/bg-header-mobile.svg');
 background-size: cover;
 background-color: #5CA5A5; 
+@media (min-width: 768px) {
+background-image: url('/images/bg-header-desktop.svg'); 
+}
 `;
 
 const FilterBar = styled.div`
@@ -38,7 +41,14 @@ display: flex;
 align-items: center;
 padding: 0;
 padding-left: 5px; 
-}
+@media (min-width: 1024px) 
+ {
+    &:hover {
+        cursor: auto;
+        background-color: #EFFAFA; 
+        color: #5CA5A5;
+    }
+ }
 
 `
 const CloseButton = styled(Close)`
@@ -50,13 +60,26 @@ margin-left: 10px;
 padding: 5px; 
 border-top-right-radius: 5px; 
 border-bottom-right-radius: 5px;
-cursor: pointer; 
+@media (min-width: 1024px) {
+    cursor: pointer; 
+    &:hover {
+        background-color: black; 
+    }
+}
 `
 
-const ClearButton = styled.h2`
+const ClearButton = styled.button`
 color: #5CA5A5; 
 font-weight: bold;
 font-size: 15px; 
+border: none; 
+background: none;  
+    @media (min-width: 1024px) {
+        cursor: pointer; 
+        &:hover {
+            text-decoration: underline; 
+        }
+    }
  `
 
 const TagWrapper = styled.div`

@@ -34,7 +34,7 @@ export const offers = [
     "company": "Account",
     "logo": "images/account.svg",
     "new": true,
-    "featured": false,
+    "featured": true,
     "position": "Junior Frontend Developer",
     "role": "Frontend",
     "level": "Junior",
