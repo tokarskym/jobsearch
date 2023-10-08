@@ -9,8 +9,10 @@ height: 156px;
 background-image: url('/images/bg-header-mobile.svg');
 background-size: cover;
 background-color: #5CA5A5; 
+margin-bottom: 30px; 
 @media (min-width: 768px) {
 background-image: url('/images/bg-header-desktop.svg'); 
+margin-bottom: 54px; 
 }
 `;
 
@@ -28,7 +30,11 @@ width: calc(100% - 86px);
 display: flex; 
 flex-direction: row; 
 justify-content: space-between;
-align-items: center;
+align-items: center; 
+@media (min-width: 1024px) {
+left: 162px;
+width: calc(100% - 364px);
+}
 `
 
 const Nav = styled.nav<{$isMargin: boolean}>`

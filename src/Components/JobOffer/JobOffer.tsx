@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const JobCard = styled.div<{ $isNew: boolean}>`
 border-radius: 5px; 
-margin: 30px 23px;  
+margin: 44px 24px;  
 background-color: #FFFFFF;
 position: relative; 
 padding: 20px; 
@@ -12,6 +12,12 @@ border-left: ${props => props.$isNew ? '7px solid #5CA5A5' : 'none'};
     display: flex;
     align-items: center; 
     justify-content: space-between; 
+    margin-top: 24px; 
+    margin-bottom: 24px; 
+}
+@media (min-width: 1024px) {
+   margin-left: 162px; 
+    margin-right: 162px; 
 }
 `
 const CompanyLogo = styled.img`
@@ -35,6 +41,8 @@ const JobDetailsRow = styled.div`
 display: flex; 
 flex-direction: row; 
 align-items: center; 
+margin-top: 5px; 
+margin-bottom: 5px; 
 `
 const CompanyName = styled.h3`
 font-size: 13px; 
@@ -73,6 +81,7 @@ height: 2px;
 width: 100%; 
 background-color: #B7C4C4; 
 border: none; 
+margin-top: 10px; 
 margin-bottom: 20px; 
 @media (min-width: 768px) {
     display: none;
@@ -167,8 +176,8 @@ const JobOffer: React.FC<JobOfferProps> = ({ offer, toggleTag}) => {
             </JobDetails>
             <StyledHr />
             <JobTags>
-              {tags.map((tag, index) => (
-                <SingleTag key={index} onClick={()=>toggleTag(tag)}>{tag}</SingleTag>
+              {tags.map((tag) => (
+                <SingleTag key={tag} onClick={()=>toggleTag(tag)}>{tag}</SingleTag>
             ))}
             </JobTags>
         </JobCard>

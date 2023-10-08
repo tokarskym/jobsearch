@@ -7,6 +7,12 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'League Spartan', sans-serif;
     background-color: #EFFAFA; 
   }
+
+  * {
+    margin: 0; 
+    padding: 0;
+  }
+
 `;
 
 export default GlobalStyles;
