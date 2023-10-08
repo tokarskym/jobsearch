@@ -5,6 +5,8 @@
 The App allow user to filter out jobs based on selected categories.  
 Optimal layout for the interface is wieved based on device screen size (RWD).
 
+/ Challenge from frontendmentor.io / 
+
 ## Technologies
 
 The following technologies were used in this project:
